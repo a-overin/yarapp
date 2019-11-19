@@ -1,5 +1,7 @@
 package com.sndg.springbootapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -10,6 +12,8 @@ import java.util.Locale;
 
 @Entity
 @Table(name = "job_list")
+//@JsonSerialize
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class JobList {
     @Id
     @Column

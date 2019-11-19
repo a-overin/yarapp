@@ -1,11 +1,15 @@
 package com.sndg.springbootapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+//@JsonSerialize
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
 
     @Id
