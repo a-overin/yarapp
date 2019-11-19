@@ -5,18 +5,21 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Locale;
 
 @Entity
 @Table(name = "job_list")
-public class JobLists {
+public class JobList {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false, targetEntity = User.class)
     @JoinColumn(name = "mob", nullable = false)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
-    private Users user;
+    private User user;
 
     @Column
     private String title;
@@ -32,6 +35,16 @@ public class JobLists {
 
     @Column(name = "date_end")
     private Timestamp dateEnd;
+
+    public JobList() {
+    }
+
+    public JobList(User user, String title, String description) {
+        this.user = user;
+        this.title = title;
+        this.description = description;
+        this.status = 0;
+    }
 
     public Long getId() {
         return id;
@@ -81,11 +94,11 @@ public class JobLists {
         this.dateEnd = dateEnd;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
