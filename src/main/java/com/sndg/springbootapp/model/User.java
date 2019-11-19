@@ -23,6 +23,11 @@ public class User {
         this.telegramId = telegramId;
     }
 
+    public User(String id, String telegramId) {
+        this.id = Long.parseLong(id);
+        this.telegramId = Long.parseLong(telegramId);
+    }
+
     public Long getTelegramId() {
         return telegramId;
     }
