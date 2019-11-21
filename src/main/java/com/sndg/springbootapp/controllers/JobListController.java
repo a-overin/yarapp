@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/joblists")
 public class JobListController {
 
     @Autowired
@@ -23,13 +24,13 @@ public class JobListController {
     @Autowired
     private UsersReportsitory usersReportsitory;
 
-    @GetMapping("/joblists")
+    @GetMapping("")
     public List<JobList> getJobListById(@RequestParam(value = "id") Long userid){
         List<JobList> jobLists = jobListReportsitory.findByUserId(userid);
         return jobLists;
     }
 
-    @PostMapping(path = "/joblists", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "", consumes = "application/json", produces = "application/json")
     public JobList createJob(@RequestBody String params) throws JsonProcessingException {
         HashMap<String, Object> paramsList = new ObjectMapper().readValue(params, HashMap.class);
         Optional<User> optionalUser = usersReportsitory.findById(Long.parseLong(paramsList.get("id").toString()));

@@ -32,6 +32,11 @@ public class User {
         this.telegramId = Long.parseLong(telegramId);
     }
 
+    public User(Long id) {
+        this.id = id;
+        this.telegramId = null;
+    }
+
     public Long getTelegramId() {
         return telegramId;
     }
