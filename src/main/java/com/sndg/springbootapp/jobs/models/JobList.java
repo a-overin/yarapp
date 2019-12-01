@@ -1,14 +1,12 @@
-package com.sndg.springbootapp.model;
+package com.sndg.springbootapp.jobs.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.sndg.springbootapp.users.models.User;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.Locale;
 
 @Entity
 @Table(name = "job_list")

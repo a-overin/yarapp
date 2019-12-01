@@ -1,13 +1,13 @@
-package com.sndg.springbootapp.model;
+package com.sndg.springbootapp.jobs.models;
 
-public enum Status {
+public enum JobStatus {
     Create(0),
     Success(1),
     Unsuccess(2);
 
     private final int id;
 
-    private Status(final int id){
+    private JobStatus(final int id){
         this.id = id;
     }
 
@@ -15,8 +15,8 @@ public enum Status {
         return id;
     }
 
-    public static Status getStatusForId(final int id){
-        for(final Status status : values())
+    public static JobStatus getStatusForId(final int id){
+        for(final JobStatus status : values())
             if (status.id == id)
                 return status;
         return null;
